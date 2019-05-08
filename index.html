@@ -1,0 +1,66 @@
+<!--
+     Team Members Names:
+                Gopica Sahiti Damineni (Z1840906)
+                Sruthi Myneni          (Z1840901)
+                Srikanth Reddy Nagidi  (Z1836478)
+    Course   :   OMIS 485
+    Due Date : 5/7/2019
+
+    Project  :   Food Delivery Appplication (Three Sons Cafe)
+    
+    This is an login page and the first page of the application. This HTML file links to sign_up.css file
+    A user needs to sign in to the application and we have also included validation check to see if the user enters correct information.
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="sign_up.css">
+</head>
+<body>
+        <script>
+  
+                        var $ = function(id) {
+                             return document.getElementById(id); 
+                        };
+                       
+                        var emailAndPasswordList = ["Z1840901@students.niu.edu+Swathi123",
+                                                "Z1840906@students.niu.edu+abcd@123",
+                                                   "Z1836478@students.niu.edu+ab@123"];
+                        
+                        function testUserNameAndPassword(){
+                                var email = $("email").value;
+                                var password = $("password").value;
+                        
+                                for (var i=0; i< emailAndPasswordList.length; i++){
+                                var emailArray = emailAndPasswordList[i].split("+");
+                                var emailInList = emailArray[0];
+                                var passwordInList = emailArray[1];
+
+                                if((emailInList.localeCompare(email)==0) && (passwordInList.localeCompare(password)==0)){
+
+                                        document.getElementById("formSubmit").action = "menu.html";
+                                        return true
+                                }
+                                }
+                        alert("Username or password doesn't match our records. Please check!");
+                        document.getElementById("formSubmit").action = "index.html";
+                        return false
+                        }
+
+                document.write("<form onsubmit='testUserNameAndPassword()' id='formSubmit'>"
+                        +"<h1 class='signUpHeading'>Welcome to the cafe!</h1>"
+                        +"<hr>"
+                        +" <br><input type='text' placeholder='Enter Email' id='email' required>"
+                        +"<br>"
+                        +"<br><input type='password' placeholder='Enter Password' id='password' required>"
+                        +" <br><br><br>"
+                        +" <button type='submit' class='signupbtn'>Login</button>"
+                        +" </form>");
+        </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!--
+     Team Members Names:
+                Gopica Sahiti Damineni (Z1840906)
+                Sruthi Myneni          (Z1840901)
+                Srikanth Reddy Nagidi  (Z1836478)
+    Course   :   OMIS 485
+    Due Date : 5/7/2019
+
+    Project  :   Food Delivery Appplication (Three Sons Cafe)
+ 
+    This is menu.html page which is the second page of the applicaiton which appears when the user logins with the correct credentials.
+   We have used Taffy db which works as a database for the menu items in the Three sons cafe.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+<title>Menu</title>
+<script src="taffy.js"></script>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Tangerine">
+<script src="store.js" async></script>
+
+<body>
+        <header class="main-header">
+                <h6 class="band-name band-name-large">Three Sons Cafe</h6>
+            </header>
+            <br>
+            <marquee class="marquee">Welcome to three sons Cafe! </marquee>
+<button id = "logout" type="button" class='btn btn-primary logout' onclick="logout()">Logout</button>
+<br>
+
+<table>
+<tr>
+<td>
+<script>
+    var $ = function(id) {
+         return document.getElementById(id); 
+    };
+
+    var cartArray = [];
+    var menu = TAFFY([
+        {"id":1,"item_name":"Bacon Sandwich","price": 5.49,"calories":640},
+        {"id":2,"item_name":"Cheeseburger", "price": 1.19,"calories":300},
+        {"id":3,"item_name":"Hamburger", "price": 1.09, "calories": 250},
+        {"id":4,"item_name":"Double Cheeseburger", "price": 1.79,"calories":270},
+        {"id":5,"item_name":"Chicken Tenders", "price": 3.99,"calories":490},
+        {"id":6,"item_name":"Fish Fillet", "price": 4.19,"calories":390},
+        {"id":7,"item_name":"French Fries", "price": 2.39,"calories":340},
+        {"id":8,"item_name":"Bacon Fries", "price": 3.39,"calories": 560},
+        {"id":9,"item_name":"Chicken Nuggets", "price": 1.19,"calories": 190},
+        {"id":10,"item_name":"Coke", "price": 5.00,"calories": 400},
+        {"id":11,"item_name":"Fruit Punch", "price": 1.00,"calories": 230}	
+    ]);    
+
+    document.write("<section class='container content-section'>"
+                    +"<h2 class='section-header'>MENU</h2>"
+                    +"<div class='shop-items'>");
+    menu().each(function (r) {
+
+        var item = r.item_name;
+        var price = r.price;
+        var image;
+        var imageArray = item.split(" ");
+        if(imageArray.length>1){
+            image = "Images/"+imageArray[0] + imageArray[1]+".jpg";
+        }else{
+            image = "Images/"+imageArray[0]+".jpg";
+        }
+
+        document.write("<div class='shop-item'>"
+                            +"<span class='shop-item-title'>"+item+"</span>"
+                            +"<img class='shop-item-image' src="+image+">"
+                            +"<div class='shop-item-details'>"
+                            +"<span class='shop-item-price'>$"+price+"</span>"
+                            +"<button class='btn btn-primary shop-item-button' type='button'>ADD TO CART</button>"
+                            +"</div>"
+                        +"</div>");
+    });
+
+    document.write("</div></section>");
+
+    function logout(){
+        window.location = "index.html";
+    }
+
+    function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+
+</script>
+</td>
+<td style="display:block;position:relative;top:20px;" rowspan="2">
+    <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">Item</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Quantity</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+</td>
+</tr>
+</table>
+</body>
+</html>

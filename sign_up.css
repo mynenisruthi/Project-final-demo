@@ -1,0 +1,65 @@
+/*
+     Team Members Names:
+                Gopica Sahiti Damineni (Z1840906)
+                Sruthi Myneni          (Z1840901)
+                Srikanth Reddy Nagidi  (Z1836478)
+    Course   :   OMIS 485
+    Due Date : 5/7/2019
+
+    Project  :   Food Delivery Appplication (Three Sons Cafe)
+   
+    This is sign_up.css which gives the look for the index.html page.
+
+*/
+body{
+    background-image: url(Images/sign_up_background.jpg);
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signUpHeading{
+    font-family: cursive;
+    font-size: 45px;
+    color:white;    
+}
+
+form{
+    width: 30%;
+    height: 400px;
+    align-content: center;
+    background-color: rgba(255, 182, 193, 0.5);
+    display: inline-block;
+    margin-top: 10%
+}
+
+input[type="text"],input[type="password"] {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', cursive;
+}
+
+button:hover {
+  opacity:1;
+}
+
+button {
+    background-color: sandybrown;
+    color: white;
+    padding: 14px 10px;
+    margin: 8px 0;
+    border: none;
+    width: 40%;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 30px;
+    font-family: cursive;
+    border-radius: 25px;
+  }
+
+  p {
+    color: coral;
+  }
